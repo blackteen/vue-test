@@ -1,13 +1,14 @@
 <template>
   <div id="app">
-    <CanvasItem msg="Welcome to Your Vue.js App" />
-    <p>{{ msg }}</p>
-    <button v-on:click="btn()"></button>
+    <CanvasItem />
+    <p>{{ message  }}</p>
+    <button type="button" class="btn btn-primary" v-on:click="btn()">Revers Text</button>
   </div>
 </template>
 
 <script>
 import CanvasItem from "./components/CanvasItem.vue";
+
 
 export default {
   name: "App",
@@ -17,13 +18,13 @@ export default {
 
   data: function () {
     return {
-      msg: 123,
+      message : "Hello World",
     };
   },
 
   methods: {
     btn: function () {
-      this.msg = 321;
+      this.message  = this.message.split('').reverse().join('');
     },
   },
 };
@@ -35,6 +36,5 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
